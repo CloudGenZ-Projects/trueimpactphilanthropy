@@ -1,5 +1,5 @@
-// const FORM_ENDPOINT_EMAIL = 'mcmclyne@gmail.com'; 
-const FORM_ENDPOINT_EMAIL = 'cloudgenz.dev@gmail.com'; 
+﻿const API_URL = 'https://formsubmit.cloudgenz.com';
+
 /* Mobile Navigation Toggle */
 const toggle = document.querySelector('.mobile-toggle');
 const nav = document.querySelector('.nav-links');
@@ -27,7 +27,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 })();
 
-/* Discovery / Contact Form Submission via FormSubmit */
+/* Discovery / Contact Form Submission */
 async function handleQualifiedSubmit(e) {
   e.preventDefault();
   
@@ -57,24 +57,20 @@ async function handleQualifiedSubmit(e) {
   }
 
   const payload = {
-    _subject: `New Discovery Conversation Request — ${values.org || values.name}`,
-    _template: 'table',
-    _captcha: 'false',
-    Name: values.name,
-    Organization: values.org,
-    Email: values.email,
-    Website: values.website || 'N/A',
-    Operating_Budget: values.budget,
-    Fundraising_Revenue: values.revenue,
-    Need_Help_With: values.need,
-    Start_Timeline: values.timeline,
-    Investment_Range: values.investment,
-    Biggest_Challenge: values.message,
-    Submitted_At: new Date().toLocaleString()
+    name: values.name,
+    organization: values.org,
+    email: values.email,
+    website: values.website || 'N/A',
+    operating_budget: values.budget,
+    fundraising_revenue: values.revenue,
+    need_help_with: values.need,
+    start_timeline: values.timeline,
+    investment_range: values.investment,
+    biggest_challenge: values.message,
   };
 
   try {
-    const response = await fetch(`https://formsubmit.co/ajax/${FORM_ENDPOINT_EMAIL}`, {
+    const response = await fetch(`${API_URL}/submit/trueimpact-contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -83,21 +79,20 @@ async function handleQualifiedSubmit(e) {
       body: JSON.stringify(payload)
     });
 
-    if (response.ok) {
+    const result = await response.json();
+
+    if (response.ok && result.success !== false) {
       alertBox.className = 'form-alert success';
       alertBox.textContent = 'Thank you! Your discovery conversation request has been sent successfully. Marsha will be in touch shortly.';
       alertBox.style.display = 'block';
       form.reset();
     } else {
-      throw new Error('Form submission failed.');
+      throw new Error(result.message || 'Form submission failed.');
     }
   } catch (err) {
-    console.warn('FormSubmit AJAX fallback to mailto:', err);
-    const mailBody = `Name: ${values.name}\nOrganization: ${values.org}\nEmail: ${values.email}\nWebsite: ${values.website}\nOperating Budget: ${values.budget}\nFundraising Revenue: ${values.revenue}\nNeed: ${values.need}\nTimeline: ${values.timeline}\nInvestment: ${values.investment}\n\nBiggest Challenge:\n${values.message}`;
-    window.location.href = `mailto:${FORM_ENDPOINT_EMAIL}?subject=${encodeURIComponent('Qualified Discovery Conversation Request - ' + values.org)}&body=${encodeURIComponent(mailBody)}`;
-    
-    alertBox.className = 'form-alert success';
-    alertBox.textContent = 'Opening your email client to complete your discovery request...';
+    console.error('Submission error:', err);
+    alertBox.className = 'form-alert error';
+    alertBox.textContent = err.message || 'Something went wrong while submitting. Please try again or reach out directly.';
     alertBox.style.display = 'block';
   } finally {
     if (submitBtn) {

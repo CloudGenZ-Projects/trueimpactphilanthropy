@@ -1,5 +1,4 @@
-// const HEALTH_CHECK_ENDPOINT_EMAIL = 'mcmclyne@gmail.com'; 
-const HEALTH_CHECK_ENDPOINT_EMAIL = 'cloudgenz.dev@gmail.com'; 
+﻿const API_URL = 'https://formsubmit.cloudgenz.com';
 
 document.getElementById('healthCheck')?.addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -88,19 +87,15 @@ document.getElementById('healthCheck')?.addEventListener('submit', async functio
   const organization = document.getElementById('hc-org')?.value?.trim() || 'Not specified';
   const consent = document.getElementById('hc-consent')?.checked ? 'Yes' : 'No';
 
-  // Send Lead and Assessment Summary via FormSubmit AJAX
+  // Send Lead and Assessment Summary via NodeEmail Service
   const payload = {
-    _subject: `New Fundraising Health Check Completed (${score}/100) — ${organization || name}`,
-    _template: 'table',
-    _captcha: 'false',
-    Name: name,
-    Email: email,
-    Organization: organization,
-    Health_Check_Score: `${score} / 100`,
-    Foundation_Category: title,
-    Identified_Priorities: weak.length ? weak.join(', ') : 'None marked 0',
-    Subscribed_to_Insights: consent,
-    Completed_At: new Date().toLocaleString()
+    name: name,
+    email: email,
+    organization: organization,
+    health_check_score: `${score} / 100`,
+    foundation_category: title,
+    identified_priorities: weak.length ? weak.join(', ') : 'None marked 0',
+    subscribed_to_insights: consent
   };
 
   try {
@@ -109,7 +104,7 @@ document.getElementById('healthCheck')?.addEventListener('submit', async functio
       submitBtn.textContent = 'Calculating & Saving...';
     }
     
-    await fetch(`https://formsubmit.co/ajax/${HEALTH_CHECK_ENDPOINT_EMAIL}`, {
+    await fetch(`${API_URL}/submit/trueimpact-health-check`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
