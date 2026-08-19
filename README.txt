@@ -49,3 +49,8 @@ DEVELOPER TASKS BEFORE LAUNCH
 
 IMPORTANT
 The free Health Check is intentionally a preliminary self-assessment. The paid Fundraising Health Check remains a deeper consulting engagement starting at $1,500.
+
+V12 EDITORIAL / COMMENTS NOTE
+- The public editorial page is branded “Let’s Talk Philanthropy” (philanthropy.html), not “Insights.”
+- To enable reader feedback, connect each article to a moderated comments solution or CMS. Require name/email, spam protection, privacy disclosure, and manual moderation/approval before comments publish.
+- Keep the editorial voice candid and sector-focused, but comments should have clear community guidelines and moderation controls.
