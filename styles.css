@@ -1,44 +1,44 @@
 /* ==========================================================================
    TRUE IMPACT PHILANTHROPY — UNIFIED DESIGN SYSTEM & STYLESHEET
-   Styling: Git Branch Modern UI + Green-Forward Logo Palette
-   Palette: Forest (#0f2d22), Emerald (#246a4e), Sage (#759a68), Gold (#b8863b)
+   Styling: Clean, Chic, Modern & Conservative Muted Logo Palette
+   Palette: Muted Sage/Olive (#557342, #6b8852), Soft Slate (#233229), Warm Linen (#f8faf6)
    ========================================================================== */
 
 :root {
-  /* Green-Dominant Logo Palette */
-  --forest-dark: #0f2d22;
-  --forest: #1b4d3a;
-  --emerald: #246a4e;
-  --emerald-light: #2f8563;
-  --teal: #1e7d78;
-  --teal-light: #2fa19b;
-  --sage: #759a68;
-  --sage-light: #e4eee0;
-  --sage-bg: #f2f7f0;
-  --gold: #b8863b;
-  --gold-light: #fdf5e8;
-  --rust: #b95d35;
-  --cream: #f8faf7;
+  /* Soft, Muted, Chic & Conservative Palette Directly from Logo */
+  --forest-dark: #202e26;
+  --forest: #364d3b;
+  --emerald: #4f6e3c;
+  --emerald-light: #62854d;
+  --teal: #365e57;
+  --teal-light: #487c73;
+  --sage: #8b9b66;
+  --sage-light: #ecf1e6;
+  --sage-bg: #f4f7f1;
+  --gold: #a87f47;
+  --gold-light: #faf5ed;
+  --rust: #a85838;
+  --cream: #f8faf6;
   --paper: #ffffff;
-  --ink: #11281f;
-  --ink-light: #284439;
-  --muted: #4e6359;
-  --muted-light: #71877d;
-  --line: #dfe7e1;
-  --line-light: #edf2ee;
+  --ink: #222c25;
+  --ink-light: #3d4a41;
+  --muted: #5e6d62;
+  --muted-light: #839387;
+  --line: #e2e7df;
+  --line-light: #eff3ec;
   
-  /* Brand-specific tokens */
-  --tip-navy: #0f2d22;
-  --tip-blue: #246a4e;
-  --tip-teal: #1e7d78;
-  --tip-olive: #759a68;
-  --tip-green: #246a4e;
-  --tip-gold: #b8863b;
-  --tip-rust: #b95d35;
-  --tip-warm: #f8faf7;
+  /* Brand-specific tokens matching logo */
+  --tip-navy: #202e26;
+  --tip-blue: #4f6e3c;
+  --tip-teal: #365e57;
+  --tip-olive: #8b9b66;
+  --tip-green: #4f6e3c;
+  --tip-gold: #a87f47;
+  --tip-rust: #a85838;
+  --tip-warm: #f8faf6;
   
   /* Layout */
-  --max: 1220px;
+  --max: 1280px;
   --radius-sm: 8px;
   --radius-md: 18px;
   --radius-lg: 28px;
@@ -96,14 +96,14 @@ ul, ol {
    ========================================================================== */
 
 .topbar {
-  background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 55%, var(--emerald) 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #2b3b32 0%, #384e40 50%, #466352 100%);
+  color: #f5f8f3;
   font-size: 0.85rem;
-  padding: 0.6rem 1rem;
+  padding: 0.55rem 1rem;
   text-align: center;
   letter-spacing: 0.06em;
   font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav {
@@ -121,9 +121,9 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
-  min-height: 90px;
-  padding: 0.4rem 0;
+  gap: 1.2rem;
+  min-height: 98px;
+  padding: 0.5rem 0;
 }
 
 /* Bigger Logo Brand Header */
@@ -139,13 +139,13 @@ ul, ol {
 .brand img,
 .brand-with-logo img,
 .brand-logo {
-  width: 76px;
-  height: 76px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   border-radius: 50%;
   padding: 2px;
   background: #ffffff;
-  box-shadow: 0 4px 12px rgba(15, 45, 34, 0.1);
+  box-shadow: 0 4px 16px rgba(15, 45, 34, 0.12);
   transition: transform 0.25s ease;
   flex-shrink: 0;
 }
@@ -168,7 +168,7 @@ ul, ol {
 
 .brand-copy small {
   display: block;
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
   font-family: 'Inter', sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
@@ -180,8 +180,8 @@ ul, ol {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  font-size: 0.95rem;
+  gap: 1.15rem;
+  font-size: 0.9rem;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -189,7 +189,7 @@ ul, ol {
 .nav-links a {
   color: var(--ink-light);
   position: relative;
-  padding: 0.4rem 0;
+  padding: 0.35rem 0;
   transition: color 0.2s ease;
 }
 
@@ -215,8 +215,9 @@ ul, ol {
 
 .nav-links .btn {
   color: #ffffff !important;
-  padding: 0.65rem 1.3rem;
-  font-size: 0.9rem;
+  padding: 0.6rem 1.15rem;
+  font-size: 0.88rem;
+  margin-left: 0.2rem;
 }
 
 .mobile-toggle {
@@ -286,15 +287,26 @@ ul, ol {
   padding: 5.5rem 0 5rem;
   color: var(--ink);
   overflow: hidden;
-  background-color: #f7faf7;
-  /* Word background image with tuned gradient overlay so background words show through clearly */
-  background-image: 
-    linear-gradient(90deg, rgba(248, 250, 247, 0.94) 0%, rgba(248, 250, 247, 0.86) 42%, rgba(248, 250, 247, 0.60) 78%, rgba(248, 250, 247, 0.40) 100%),
-    url("assets/philanthropy-word-background.png");
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
+  background-color: #f8faf6;
   border-bottom: 1px solid var(--line);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 66%;
+  background-image: url("assets/philanthropy-word-background.png");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  opacity: 0.90;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 8%, rgba(0, 0, 0, 0.75) 20%, black 35%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 8%, rgba(0, 0, 0, 0.75) 20%, black 35%);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero .container {
@@ -312,14 +324,14 @@ ul, ol {
 .hero h1 {
   color: var(--forest-dark);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(2.6rem, 5vw, 4.2rem);
-  line-height: 1.12;
+  font-size: clamp(2.4rem, 4.4vw, 3.85rem);
+  line-height: 1.14;
   margin: 0.6rem 0 1.2rem;
   letter-spacing: -0.02em;
 }
 
 .hero .lead {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--ink-light);
   line-height: 1.65;
   max-width: 640px;
@@ -520,7 +532,7 @@ ul, ol {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  background: #f7faf7;
+  background-color: #f7faf6;
 }
 
 .word-banner-hero::before {
@@ -528,10 +540,10 @@ ul, ol {
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: url('assets/sector-word-banner.jpg');
+  background-image: url('assets/philanthropy-word-background.png');
   background-size: cover;
-  background-position: center;
-  opacity: 0.38;
+  background-position: center right;
+  opacity: 0.65;
 }
 
 .word-banner-hero::after {
@@ -539,7 +551,12 @@ ul, ol {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(247, 250, 247, 0.96) 0%, rgba(247, 250, 247, 0.88) 48%, rgba(247, 250, 247, 0.75) 100%);
+  background: linear-gradient(90deg, rgba(248, 250, 246, 0.84) 0%, rgba(248, 250, 246, 0.65) 50%, rgba(248, 250, 246, 0.35) 100%);
+}
+
+.word-banner-hero h1,
+.word-banner-hero .lead {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
 }
 
 /* ==========================================================================
@@ -1494,28 +1511,67 @@ footer {
    RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 
-@media (max-width: 960px) {
+@media (max-width: 1240px) {
+  .nav-inner {
+    min-height: 86px;
+  }
+
   .nav-links {
     display: none;
     position: absolute;
-    top: 90px;
+    top: 100%;
     left: 0;
     right: 0;
     background: #ffffff;
-    padding: 1.5rem 24px 2rem;
+    padding: 1.4rem 28px 2rem;
     border-bottom: 2px solid var(--line);
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1.2rem;
-    box-shadow: var(--shadow-lg);
+    align-items: stretch;
+    gap: 0.6rem;
+    box-shadow: 0 16px 40px rgba(32, 46, 38, 0.12);
+    z-index: 999;
   }
   
   .nav-links.open {
     display: flex;
+    animation: drawerSlide 0.22s ease-out;
+  }
+
+  .nav-links a {
+    font-size: 1.05rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--line-light);
+    width: 100%;
+    color: var(--ink);
+  }
+
+  .nav-links a:last-of-type {
+    border-bottom: none;
+  }
+
+  .nav-links .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.4rem;
+    margin-top: 0.6rem;
+    font-size: 1rem;
   }
   
   .mobile-toggle {
     display: block;
+    font-size: 2.1rem;
+    color: var(--forest-dark);
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-toggle:hover {
+    background: var(--sage-light);
   }
   
   .hero-grid,
@@ -1552,6 +1608,17 @@ footer {
   }
 }
 
+@keyframes drawerSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 640px) {
   .container {
     width: calc(100% - 32px);
@@ -1560,22 +1627,22 @@ footer {
   .brand img,
   .brand-with-logo img,
   .brand-logo {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
   }
   
   .brand-copy,
   .brand-text {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
   
   .brand-copy small {
-    font-size: 0.6rem;
+    font-size: 0.62rem;
   }
   
   .hero {
     background-image: 
-      linear-gradient(90deg, rgba(248, 250, 247, 0.98) 0%, rgba(248, 250, 247, 0.94) 70%, rgba(248, 250, 247, 0.85) 100%),
+      linear-gradient(90deg, rgba(248, 250, 246, 0.82) 0%, rgba(248, 250, 246, 0.68) 70%, rgba(248, 250, 246, 0.35) 100%),
       url("assets/philanthropy-word-background.png");
     padding: 3.5rem 0;
   }
