@@ -1,41 +1,48 @@
 /* ==========================================================================
    TRUE IMPACT PHILANTHROPY — UNIFIED DESIGN SYSTEM & STYLESHEET
-   Styling: Clean, Chic, Modern & Conservative Muted Logo Palette
-   Palette: Muted Sage/Olive (#557342, #6b8852), Soft Slate (#233229), Warm Linen (#f8faf6)
+   Styling: Clean, Chic, Modern & Conservative Light Palette (From Logo)
+   Palette: Soft Olive/Sage (#6b8445), Deep Slate (#1b324d), Linen White (#ffffff, #fafbf9)
    ========================================================================== */
 
 :root {
-  /* Soft, Muted, Chic & Conservative Palette Directly from Logo */
-  --forest-dark: #202e26;
-  --forest: #364d3b;
-  --emerald: #4f6e3c;
-  --emerald-light: #62854d;
-  --teal: #365e57;
-  --teal-light: #487c73;
-  --sage: #8b9b66;
-  --sage-light: #ecf1e6;
-  --sage-bg: #f4f7f1;
-  --gold: #a87f47;
-  --gold-light: #faf5ed;
-  --rust: #a85838;
-  --cream: #f8faf6;
-  --paper: #ffffff;
-  --ink: #222c25;
-  --ink-light: #3d4a41;
-  --muted: #5e6d62;
-  --muted-light: #839387;
-  --line: #e2e7df;
-  --line-light: #eff3ec;
+  /* Chic, Light, Modern & Conservative Logo Palette */
+  --forest-dark: #1b324d;
+  --forest: #2a4663;
+  --slate: #1b324d;
   
-  /* Brand-specific tokens matching logo */
-  --tip-navy: #202e26;
-  --tip-blue: #4f6e3c;
-  --tip-teal: #365e57;
-  --tip-olive: #8b9b66;
-  --tip-green: #4f6e3c;
-  --tip-gold: #a87f47;
-  --tip-rust: #a85838;
-  --tip-warm: #f8faf6;
+  /* Soft Logo Olive/Sage Greens (From Logo Wreath/Hands) */
+  --emerald: #6b8445;
+  --emerald-light: #7c9652;
+  --sage: #93a66e;
+  --sage-light: #eef3e8;
+  --sage-bg: #f5f8f3;
+  
+  /* Logo Warm Accents (Caramel & Slate Teal) */
+  --gold: #b3824c;
+  --gold-light: #fbf5ee;
+  --terracotta: #c47347;
+  --teal: #337a8b;
+  --teal-light: #4898aa;
+  
+  /* Light Shades & Generous White Space */
+  --cream: #fafbf9;
+  --paper: #ffffff;
+  --ink: #1e2832;
+  --ink-light: #3f4e5d;
+  --muted: #627282;
+  --muted-light: #8899a8;
+  --line: #e3e8e2;
+  --line-light: #eff3ee;
+  
+  /* Brand-specific tokens */
+  --tip-navy: #1b324d;
+  --tip-blue: #6b8445;
+  --tip-teal: #337a8b;
+  --tip-olive: #93a66e;
+  --tip-green: #6b8445;
+  --tip-gold: #b3824c;
+  --tip-rust: #c47347;
+  --tip-warm: #fafbf9;
   
   /* Layout */
   --max: 1280px;
@@ -45,9 +52,9 @@
   --radius-pill: 999px;
   
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(15, 45, 34, 0.05);
-  --shadow-md: 0 8px 24px rgba(15, 45, 34, 0.08);
-  --shadow-lg: 0 16px 44px rgba(15, 45, 34, 0.13);
+  --shadow-sm: 0 2px 8px rgba(27, 50, 77, 0.04);
+  --shadow-md: 0 8px 24px rgba(27, 50, 77, 0.06);
+  --shadow-lg: 0 16px 44px rgba(27, 50, 77, 0.09);
 }
 
 /* Reset & Base */
@@ -92,18 +99,18 @@ ul, ol {
 }
 
 /* ==========================================================================
-   TOP BAR & NAVIGATION (BIGGER LOGO & RESPONSIVE)
+   TOP BAR & NAVIGATION (LIGHT, CHIC & AIRY)
    ========================================================================== */
 
 .topbar {
-  background: linear-gradient(135deg, #2b3b32 0%, #384e40 50%, #466352 100%);
-  color: #f5f8f3;
+  background: var(--emerald);
+  color: #ffffff;
   font-size: 0.85rem;
-  padding: 0.55rem 1rem;
+  padding: 0.6rem 1rem;
   text-align: center;
-  letter-spacing: 0.06em;
-  font-weight: 500;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .nav {
@@ -122,16 +129,16 @@ ul, ol {
   align-items: center;
   justify-content: space-between;
   gap: 1.2rem;
-  min-height: 98px;
-  padding: 0.5rem 0;
+  min-height: 112px;
+  padding: 0.6rem 0;
 }
 
-/* Bigger Logo Brand Header */
+/* Bigger & More Prominent Logo Brand Header */
 .brand,
 .brand-with-logo {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 1rem;
   flex-shrink: 0;
   text-decoration: none;
 }
@@ -139,20 +146,22 @@ ul, ol {
 .brand img,
 .brand-with-logo img,
 .brand-logo {
-  width: 90px;
-  height: 90px;
+  width: 104px;
+  height: 104px;
   object-fit: contain;
   border-radius: 50%;
   padding: 2px;
   background: #ffffff;
-  box-shadow: 0 4px 16px rgba(15, 45, 34, 0.12);
-  transition: transform 0.25s ease;
+  box-shadow: 0 6px 20px rgba(15, 45, 34, 0.14);
+  border: 1.5px solid var(--line);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   flex-shrink: 0;
 }
 
 .brand:hover img,
 .brand-with-logo:hover img {
   transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(15, 45, 34, 0.18);
 }
 
 .brand-copy,
@@ -160,7 +169,7 @@ ul, ol {
   display: flex;
   flex-direction: column;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 1.25rem;
+  font-size: 1.28rem;
   font-weight: 700;
   color: var(--forest-dark);
   line-height: 1.15;
@@ -168,13 +177,14 @@ ul, ol {
 
 .brand-copy small {
   display: block;
-  margin-top: 0.2rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
+  margin-top: 0.28rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.61rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.045em;
   text-transform: uppercase;
   color: var(--emerald);
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -297,14 +307,17 @@ ul, ol {
   top: 0;
   right: 0;
   bottom: 0;
-  width: 66%;
+  width: 68%;
   background-image: url("assets/philanthropy-word-background.png");
-  background-size: cover;
+  background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;
-  opacity: 0.90;
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 8%, rgba(0, 0, 0, 0.75) 20%, black 35%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.25) 8%, rgba(0, 0, 0, 0.75) 20%, black 35%);
+  opacity: 1;
+  filter: contrast(1.06) saturate(1.08);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.02) 4%, rgba(0, 0, 0, 0.25) 12%, rgba(0, 0, 0, 0.75) 22%, black 32%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.02) 4%, rgba(0, 0, 0, 0.25) 12%, rgba(0, 0, 0, 0.75) 22%, black 32%, black 90%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
   z-index: 1;
   pointer-events: none;
 }
@@ -557,6 +570,11 @@ ul, ol {
 .word-banner-hero h1,
 .word-banner-hero .lead {
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+}
+
+.word-banner-hero h1,
+.word-banner-hero .lead {
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
 /* ==========================================================================
@@ -826,18 +844,19 @@ h3 {
 }
 
 .boundary {
-  background: var(--forest-dark);
-  color: #ffffff;
+  background: var(--sage-bg);
+  color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 2.8rem;
+  border: 1px solid var(--line);
 }
 
 .boundary h2, .boundary h3 {
-  color: #ffffff;
+  color: var(--forest-dark);
 }
 
 .boundary p {
-  color: #e2eee8;
+  color: var(--ink-light);
 }
 
 .steps {
@@ -895,26 +914,39 @@ h3 {
   border: 1px solid var(--line);
 }
 
-/* Call to Action Box */
+/* Call to Action Box (Light, Chic, Modern Luxury) */
 .cta {
-  background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 60%, var(--emerald) 100%);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--ink);
   border-radius: var(--radius-lg);
   padding: 3.5rem;
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 2.5rem;
   align-items: center;
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 36px rgba(27, 50, 77, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--emerald) 0%, var(--sage) 50%, var(--gold) 100%);
 }
 
 .cta h2 {
-  color: #ffffff;
+  color: var(--forest-dark);
   margin-bottom: 0.8rem;
 }
 
 .cta p {
-  color: #e4eee8;
+  color: var(--ink-light);
   font-size: 1.1rem;
 }
 
@@ -926,25 +958,28 @@ h3 {
 }
 
 .cta .btn-primary {
-  background: #ffffff;
-  color: var(--forest-dark) !important;
-  border-color: #ffffff;
+  background: var(--emerald);
+  color: #ffffff !important;
+  border-color: var(--emerald);
+  box-shadow: 0 3px 12px rgba(107, 132, 69, 0.22);
 }
 
 .cta .btn-primary:hover {
-  background: var(--cream);
+  background: #5a6f36;
+  border-color: #5a6f36;
   transform: translateY(-2px);
 }
 
 .cta .btn-secondary {
-  border-color: rgba(255, 255, 255, 0.7);
-  color: #ffffff;
-  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+  background: #ffffff;
 }
 
 .cta .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: #ffffff;
+  background: var(--sage-bg);
+  border-color: var(--emerald);
+  color: var(--forest-dark);
 }
 
 /* Logo Wall & Partner Logos */
@@ -1000,6 +1035,88 @@ h3 {
 
 .case-study:last-child {
   border-bottom: 0;
+}
+
+/* Featured Major Case Studies */
+.case-study.featured {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(27, 50, 77, 0.06);
+  border-top: 4px solid var(--emerald);
+  position: relative;
+  overflow: hidden;
+}
+
+.case-study.featured:last-child {
+  margin-bottom: 0;
+}
+
+.case-study.featured .case-number {
+  font-size: 2.6rem;
+  color: var(--emerald);
+}
+
+.case-study.featured .case-logo {
+  max-width: 170px;
+  max-height: 85px;
+  padding: 0.7rem;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Compact Case Studies Grid */
+.compact-case-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+  margin-top: 2rem;
+}
+
+.compact-case-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.compact-case-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.compact-case-card .case-logo {
+  max-width: 130px;
+  max-height: 65px;
+  margin-bottom: 0.9rem;
+}
+
+.compact-case-card h3 {
+  font-size: 1.25rem;
+  margin: 0.4rem 0 0.8rem;
+  color: var(--forest-dark);
+}
+
+.compact-case-card p {
+  font-size: 0.95rem;
+  color: var(--ink-light);
+  line-height: 1.6;
+}
+
+.compact-case-card .result-callout {
+  margin: 1rem 0;
+  padding: 1rem 1.2rem;
+  font-size: 0.95rem;
+}
+
+.compact-case-card .btn {
+  margin-top: auto;
+  align-self: flex-start;
 }
 
 .case-number {
@@ -1189,13 +1306,26 @@ textarea {
   margin-top: 2.5rem;
   padding: 2.5rem;
   border-radius: var(--radius-lg);
-  background: var(--forest-dark);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--ink);
   display: grid;
   grid-template-columns: 180px 1fr;
   gap: 2.5rem;
   align-items: center;
-  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 36px rgba(27, 50, 77, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.health-result::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--emerald) 0%, var(--teal) 50%, var(--gold) 100%);
 }
 
 .health-result[hidden] {
@@ -1203,43 +1333,44 @@ textarea {
 }
 
 .health-result h3, .health-result h2 {
-  color: #ffffff;
+  color: var(--forest-dark);
 }
 
-.health-result .lead,
+.health-result .lead {
+  color: var(--ink-light);
+}
+
 .health-result .check {
-  color: #e2ede7;
+  color: var(--ink);
 }
 
 .health-result .check:before {
-  color: #8bd3af;
+  color: var(--emerald);
 }
 
 .score-ring {
   width: 160px;
   height: 160px;
   border-radius: 50%;
-  border: 8px solid var(--gold);
+  border: 6px solid var(--emerald);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--sage-bg);
 }
 
 .score-ring strong {
-  font-family: Georgia, serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 3.2rem;
   line-height: 1;
-  color: #ffffff;
+  color: var(--forest-dark);
 }
 
 .score-ring span {
   font-weight: 700;
-  font-size: 0.85rem;
-  color: var(--gold);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 /* ==========================================================================
@@ -1513,7 +1644,24 @@ footer {
 
 @media (max-width: 1240px) {
   .nav-inner {
-    min-height: 86px;
+    min-height: 94px;
+  }
+  
+  .brand img,
+  .brand-with-logo img,
+  .brand-logo {
+    width: 86px;
+    height: 86px;
+  }
+  
+  .brand-copy,
+  .brand-text {
+    font-size: 1.2rem;
+  }
+  
+  .brand-copy small {
+    font-size: 0.54rem;
+    letter-spacing: 0.025em;
   }
 
   .nav-links {
@@ -1590,8 +1738,9 @@ footer {
   .cards,
   .blog-grid,
   .talk-grid,
-  .logo-wall {
-    grid-template-columns: 1fr 1fr;
+  .logo-wall,
+  .compact-case-grid {
+    grid-template-columns: 1fr;
   }
   
   .hero {
@@ -1637,23 +1786,47 @@ footer {
 
 @media (max-width: 640px) {
   .container {
-    width: calc(100% - 32px);
+    width: calc(100% - 24px);
+  }
+
+  .topbar {
+    font-size: 0.76rem;
+    padding: 0.45rem 0.6rem;
+    line-height: 1.35;
+  }
+
+  .nav-inner {
+    min-height: 82px;
+    padding: 0.4rem 0;
+    gap: 0.5rem;
+  }
+
+  .brand,
+  .brand-with-logo {
+    gap: 0.65rem;
+    max-width: calc(100% - 48px);
+    overflow: hidden;
   }
   
   .brand img,
   .brand-with-logo img,
   .brand-logo {
-    width: 68px;
-    height: 68px;
+    width: 60px;
+    height: 60px;
   }
   
   .brand-copy,
   .brand-text {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
+    line-height: 1.12;
   }
   
   .brand-copy small {
-    font-size: 0.62rem;
+    font-size: 0.50rem;
+    letter-spacing: 0.02em;
+    white-space: normal;
+    line-height: 1.25;
+    margin-top: 0.2rem;
   }
   
   .hero {
