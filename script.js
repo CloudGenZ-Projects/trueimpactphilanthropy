@@ -36,7 +36,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     <div class="splash-content">
       <img src="assets/true-impact-logo.png" alt="True Impact Philanthropy logo" class="splash-logo">
       <div class="splash-brand">True Impact Philanthropy</div>
-      <div class="splash-tagline">Strategy • Partnerships • Growth</div>
+      <div class="splash-tagline">Fundraising Strategy • Partnerships • Nonprofit Advisory</div>
       <div class="splash-spinner" aria-hidden="true"></div>
     </div>
   `;
