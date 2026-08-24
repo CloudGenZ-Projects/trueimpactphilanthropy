@@ -1,4 +1,4 @@
-const API_URL = 'https://formsubmit.cloudgenz.com';
+window.API_URL = window.API_URL || 'https://formsubmit.cloudgenz.com';
 
 /* Mobile Navigation Toggle */
 const toggle = document.querySelector('.mobile-toggle');
@@ -94,6 +94,26 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   }, 6000);
 })();
 
+/* Global Custom Toast Popup */
+function showNotification(message, isError = false) {
+  let toast = document.getElementById('custom-site-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'custom-site-toast';
+    toast.className = 'custom-toast';
+    document.body.appendChild(toast);
+  }
+  
+  toast.textContent = message;
+  toast.className = `custom-toast ${isError ? 'toast-error' : ''} toast-show`;
+  
+  if (window.toastTimeout) clearTimeout(window.toastTimeout);
+  window.toastTimeout = setTimeout(() => {
+    toast.classList.remove('toast-show');
+  }, 3500);
+}
+window.showNotification = showNotification;
+
 /* Discovery / Contact Form Submission */
 async function handleQualifiedSubmit(e) {
   e.preventDefault();
@@ -106,7 +126,7 @@ async function handleQualifiedSubmit(e) {
   const values = Object.fromEntries(ids.map(id => [id, document.getElementById(id)?.value?.trim() || '']));
   
   if (!values.name || !values.email || !values.message) {
-    alert('Please fill in all required fields (Name, Email, Message).');
+    showNotification('Please fill in all required fields (Name, Email, Message).', true);
     return false;
   }
   

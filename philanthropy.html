@@ -69,40 +69,93 @@
 
   <section>
     <div class="container">
-      <div class="blog-grid">
+      <div class="blog-controls">
+        <div class="blog-filters" id="blog-category-filters">
+          <button class="category-btn active" data-category="all">All Articles</button>
+          <button class="category-btn" data-category="Fundraising Strategy">Fundraising Strategy</button>
+          <button class="category-btn" data-category="Corporate Partnerships">Corporate Partnerships</button>
+          <button class="category-btn" data-category="Nonprofit Leadership">Nonprofit Leadership</button>
+          <button class="category-btn" data-category="Fractional Leadership">Fractional Leadership</button>
+        </div>
+        <div class="blog-search-box">
+          <input type="text" id="blog-search-input" placeholder="Search articles...">
+        </div>
+      </div>
+
+      <div class="blog-grid" id="dynamic-blog-grid">
         <article class="blog-card">
-          <small>Fundraising Strategy</small>
-          <h3><a href="how-much-fundraising-consultant-cost-canada.html">How Much Does a Fundraising Consultant Cost in Canada?</a></h3>
-          <p>There is no single correct fee because the scope can range from a focused strategy session to months of fractional leadership. The better question is what level of problem you are asking the consultant to solve.</p>
-          <p><a href="how-much-fundraising-consultant-cost-canada.html"><strong>Read article →</strong></a></p>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category-badge">Fundraising Strategy</span>
+              <span class="blog-read-time">5 min read</span>
+            </div>
+            <h3><a href="how-much-fundraising-consultant-cost-canada.html">How Much Does a Fundraising Consultant Cost in Canada?</a></h3>
+            <p>There is no single correct fee because the scope can range from a focused strategy session to months of fractional leadership. The better question is what level of problem you are asking the consultant to solve.</p>
+            <div class="blog-card-footer">
+              <span class="blog-date">August 2026</span>
+              <a class="read-link" href="how-much-fundraising-consultant-cost-canada.html">Read article →</a>
+            </div>
+          </div>
         </article>
 
         <article class="blog-card">
-          <small>Fractional Leadership</small>
-          <h3><a href="what-is-fractional-fundraising-director.html">What Is a Fractional Fundraising Director?</a></h3>
-          <p>A fractional fundraising director provides senior fundraising leadership on a part-time or contracted basis. The organization gains strategic expertise without immediately carrying the cost and commitment of a full-time executive hire.</p>
-          <p><a href="what-is-fractional-fundraising-director.html"><strong>Read article →</strong></a></p>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category-badge">Fractional Leadership</span>
+              <span class="blog-read-time">6 min read</span>
+            </div>
+            <h3><a href="what-is-fractional-fundraising-director.html">What Is a Fractional Fundraising Director?</a></h3>
+            <p>A fractional fundraising director provides senior fundraising leadership on a part-time or contracted basis. The organization gains strategic expertise without immediately carrying the cost and commitment of a full-time executive hire.</p>
+            <div class="blog-card-footer">
+              <span class="blog-date">August 2026</span>
+              <a class="read-link" href="what-is-fractional-fundraising-director.html">Read article →</a>
+            </div>
+          </div>
         </article>
 
         <article class="blog-card">
-          <small>Fundraising Strategy</small>
-          <h3><a href="build-fundraising-strategy-small-nonprofit.html">How to Build a Fundraising Strategy for a Small Nonprofit</a></h3>
-          <p>Small nonprofits often try to do too much: grants, events, corporate outreach, major gifts, social media campaigns and donor appeals, all at once. A useful strategy begins by choosing where not to spend limited capacity.</p>
-          <p><a href="build-fundraising-strategy-small-nonprofit.html"><strong>Read article →</strong></a></p>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category-badge">Fundraising Strategy</span>
+              <span class="blog-read-time">7 min read</span>
+            </div>
+            <h3><a href="build-fundraising-strategy-small-nonprofit.html">How to Build a Fundraising Strategy for a Small Nonprofit</a></h3>
+            <p>Small nonprofits often try to do too much: grants, events, corporate outreach, major gifts, social media campaigns and donor appeals, all at once. A useful strategy begins by choosing where not to spend limited capacity.</p>
+            <div class="blog-card-footer">
+              <span class="blog-date">August 2026</span>
+              <a class="read-link" href="build-fundraising-strategy-small-nonprofit.html">Read article →</a>
+            </div>
+          </div>
         </article>
 
         <article class="blog-card">
-          <small>Corporate Partnerships</small>
-          <h3><a href="why-corporate-sponsorship-requests-fail.html">Why Corporate Sponsorship Requests Fail</a></h3>
-          <p>Many sponsorship requests begin with what the nonprofit needs: a dollar amount, an event and a list of logo benefits. The company is left to figure out why the opportunity matters to them.</p>
-          <p><a href="why-corporate-sponsorship-requests-fail.html"><strong>Read article →</strong></a></p>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category-badge">Corporate Partnerships</span>
+              <span class="blog-read-time">5 min read</span>
+            </div>
+            <h3><a href="why-corporate-sponsorship-requests-fail.html">Why Corporate Sponsorship Requests Fail</a></h3>
+            <p>Many sponsorship requests begin with what the nonprofit needs: a dollar amount, an event and a list of logo benefits. The company is left to figure out why the opportunity matters to them.</p>
+            <div class="blog-card-footer">
+              <span class="blog-date">August 2026</span>
+              <a class="read-link" href="why-corporate-sponsorship-requests-fail.html">Read article →</a>
+            </div>
+          </div>
         </article>
 
         <article class="blog-card">
-          <small>Nonprofit Leadership</small>
-          <h3><a href="fundraising-consultant-vs-development-director.html">Fundraising Consultant vs. Development Director: Which Do You Need?</a></h3>
-          <p>A permanent fundraising hire makes sense when the organization has enough ongoing work, leadership support, budget, systems and strategic clarity to sustain the role. A consultant can make more sense when the organization first needs diagnosis, strategy, specialized expertise or temporary senior leadership.</p>
-          <p><a href="fundraising-consultant-vs-development-director.html"><strong>Read article →</strong></a></p>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-category-badge">Nonprofit Leadership</span>
+              <span class="blog-read-time">6 min read</span>
+            </div>
+            <h3><a href="fundraising-consultant-vs-development-director.html">Fundraising Consultant vs. Development Director: Which Do You Need?</a></h3>
+            <p>A permanent fundraising hire makes sense when the organization has enough ongoing work, leadership support, budget, systems and strategic clarity to sustain the role. A consultant can make more sense when the organization first needs diagnosis, strategy, specialized expertise or temporary senior leadership.</p>
+            <div class="blog-card-footer">
+              <span class="blog-date">August 2026</span>
+              <a class="read-link" href="fundraising-consultant-vs-development-director.html">Read article →</a>
+            </div>
+          </div>
         </article>
       </div>
     </div>
@@ -165,5 +218,6 @@
 
   <a aria-label="Chat with True Impact Philanthropy on WhatsApp" class="whatsapp" href="https://wa.me/16477734841" rel="noopener" target="_blank">WhatsApp</a>
   <script src="script.js"></script>
+  <script src="blog-loader.js"></script>
 </body>
 </html>
