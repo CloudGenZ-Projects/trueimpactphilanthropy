@@ -120,7 +120,7 @@ async function initBlogFeed() {
       window.allCombinedArticles = [...normalizedWpPosts, ...staticArticles];
     }
   } catch (err) {
-    console.log('WordPress API note: displaying static articles.', err);
+    console.log(' API note: displaying static articles.', err);
     window.allCombinedArticles = [...staticArticles];
   }
 
@@ -306,7 +306,7 @@ async function initSingleArticle() {
     articleContent.innerHTML = `
       <div class="container" style="padding: 5rem 0; text-align: center;">
         <h2>Article Unavailable</h2>
-        <p class="lead">The requested article could not be loaded from WordPress at this moment.</p>
+        <p class="lead">The requested article could not be loaded at this moment.</p>
         <a class="btn btn-primary" href="philanthropy.html">Return to All Articles</a>
       </div>
     `;
@@ -465,7 +465,7 @@ function setupCommentForm(postId) {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    statusEl.innerHTML = '<span style="color: var(--emerald); font-weight: 600;">Submitting to WordPress...</span>';
+    statusEl.innerHTML = '<span style="color: var(--emerald); font-weight: 600;">Submitting...</span>';
 
     const authorName = document.getElementById('comment-author').value.trim();
     const authorEmail = document.getElementById('comment-email').value.trim();
