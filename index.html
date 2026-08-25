@@ -1,736 +1,282 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>True Impact Philanthropy | Coming Soon</title>
-    <link rel="icon" type="image/png" href="logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --navy: #1a2e5a;
-            --navy-light: #2a3f6e;
-            --teal: #2a9d9a;
-            --teal-light: #3dbdba;
-            --teal-dark: #1d7a78;
-            --olive: #8ba650;
-            --green-dark: #3d6b4a;
-            --golden: #b8954a;
-            --cream: #f8f6f2;
-            --white: #ffffff;
-            --gray: #6b7280;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--cream);
-            color: var(--navy);
-            line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Animated background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .bg-animation .circle {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.06;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .bg-animation .circle:nth-child(1) {
-            width: 600px;
-            height: 600px;
-            background: var(--teal);
-            top: -200px;
-            right: -100px;
-            animation-delay: 0s;
-        }
-
-        .bg-animation .circle:nth-child(2) {
-            width: 400px;
-            height: 400px;
-            background: var(--navy);
-            bottom: -100px;
-            left: -100px;
-            animation-delay: -5s;
-        }
-
-        .bg-animation .circle:nth-child(3) {
-            width: 300px;
-            height: 300px;
-            background: var(--golden);
-            top: 50%;
-            left: 60%;
-            animation-delay: -10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -30px) scale(1.05); }
-            50% { transform: translate(-20px, 20px) scale(0.95); }
-            75% { transform: translate(15px, 15px) scale(1.02); }
-        }
-
-        /* Header */
-        .header {
-            padding: 30px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            animation: fadeDown 0.8s ease-out;
-        }
-
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .header-logo img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
-
-        .header-logo span {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--navy);
-        }
-
-        .header-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(42, 157, 154, 0.1);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--teal-dark);
-        }
-
-        .header-status .pulse {
-            width: 8px;
-            height: 8px;
-            background: var(--teal);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.5); }
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 80px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero-logo {
-            margin-bottom: 40px;
-            animation: fadeUp 1s ease-out 0.2s both;
-        }
-
-        .hero-logo img {
-            width: 160px;
-            height: 160px;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 30px rgba(42, 157, 154, 0.2));
-            animation: logoFloat 6s ease-in-out infinite;
-        }
-
-        @keyframes logoFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 8px;
-            animation: fadeUp 1s ease-out 0.4s both;
-            line-height: 1.2;
-        }
-
-        .hero h1 .highlight {
-            background: linear-gradient(135deg, var(--teal), var(--teal-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .tagline {
-            font-size: 1.3rem;
-            color: var(--teal-dark);
-            font-weight: 500;
-            margin-bottom: 30px;
-            animation: fadeUp 1s ease-out 0.5s both;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.9;
-            animation: fadeUp 1s ease-out 0.6s both;
-        }
-
-        /* Services Section */
-        .services {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-            animation: fadeUp 1s ease-out 0.8s both;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--navy);
-            margin-bottom: 10px;
-        }
-
-        .section-header p {
-            color: var(--gray);
-            font-size: 1.05rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .service-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 28px 24px;
-            position: relative;
-            overflow: hidden;
-            cursor: default;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 1px solid rgba(42, 157, 154, 0.08);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--teal), var(--teal-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(26, 46, 90, 0.1);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, rgba(42, 157, 154, 0.1), rgba(42, 157, 154, 0.05));
-        }
-
-        .service-card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--navy);
-            line-height: 1.4;
-        }
-
-        /* Contact Section */
-        .contact {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
-        }
-
-        .contact-card {
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            border-radius: 24px;
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(42, 157, 154, 0.15), transparent 70%);
-            border-radius: 50%;
-        }
-
-        .contact-card::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(184, 149, 74, 0.1), transparent 70%);
-            border-radius: 50%;
-        }
-
-        .contact-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--white);
-            margin-bottom: 12px;
-        }
-
-        .contact-content > p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.05rem;
-            margin-bottom: 35px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 28px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-btn.email {
-            background: var(--teal);
-            color: var(--white);
-        }
-
-        .contact-btn.email:hover {
-            background: var(--teal-light);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(42, 157, 154, 0.4);
-        }
-
-        .contact-btn.phone {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
-        }
-
-        .contact-btn.phone:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Mission */
-        .mission {
-            text-align: center;
-            padding: 0 20px 60px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .mission blockquote {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--teal-dark);
-            position: relative;
-            padding: 30px 0;
-        }
-
-        .mission blockquote::before,
-        .mission blockquote::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--teal), var(--teal-light));
-            margin: 0 auto;
-            border-radius: 2px;
-        }
-
-        .mission blockquote::before {
-            margin-bottom: 25px;
-        }
-
-        .mission blockquote::after {
-            margin-top: 25px;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px 20px 40px;
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .footer p {
-            margin-bottom: 8px;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Scroll animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Stagger children */
-        .stagger-children .service-card {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stagger-children.visible .service-card:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(8) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible .service-card:nth-child(9) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .header {
-                padding: 20px;
-            }
-
-            .header-logo span {
-                display: none;
-            }
-
-            .hero {
-                padding: 40px 20px 60px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero .tagline {
-                font-size: 1.1rem;
-            }
-
-            .hero-logo img {
-                width: 120px;
-                height: 120px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-card {
-                padding: 40px 24px;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-
-            .section-header h2 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>Fundraising Consultant Canada | True Impact Philanthropy</title>
+  <meta content="Fundraising strategy, nonprofit advisory, corporate partnerships and fractional fundraising leadership for charities and mission-driven organizations across Canada." name="description"/>
+  <link href="https://trueimpactphilanthrophy.ca/" rel="canonical"/>
+  <meta content="website" property="og:type"/>
+  <meta content="Fundraising Consultant Canada | True Impact Philanthropy" property="og:title"/>
+  <meta content="Fundraising strategy, nonprofit advisory, corporate partnerships and fractional fundraising leadership for charities and mission-driven organizations across Canada." property="og:description"/>
+  <meta content="https://trueimpactphilanthrophy.ca/" property="og:url"/>
+  <meta content="True Impact Philanthropy" property="og:site_name"/>
+  <meta content="https://trueimpactphilanthrophy.ca/assets/marsha.jpg" property="og:image"/>
+  <meta content="summary_large_image" name="twitter:card"/>
+  <link href="styles.css" rel="stylesheet"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "True Impact Philanthropy",
+    "url": "https://trueimpactphilanthrophy.ca/",
+    "email": "mcmclyne@gmail.com",
+    "telephone": "+1-647-773-4841",
+    "founder": {
+      "@type": "Person",
+      "name": "Marsha Clyne"
+    },
+    "areaServed": [
+      "Canada",
+      "Ottawa",
+      "Ontario"
+    ],
+    "serviceType": [
+      "Fundraising strategy",
+      "Nonprofit consulting",
+      "Corporate partnerships",
+      "Fractional fundraising leadership",
+      "Grant strategy"
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+  <div class="topbar">Fundraising strategy. Stronger systems. Sustainable growth.</div>
+  
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand brand-with-logo" href="index.html">
+        <img src="assets/true-impact-logo.png" alt="True Impact Philanthropy logo" class="brand-logo" width="104" height="104">
+        <span class="brand-copy">
+          True Impact Philanthropy
+          <small>Fundraising Strategy • Partnerships • Nonprofit Advisory</small>
+        </span>
+      </a>
+      <button class="mobile-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about-true-impact.html">About True Impact</a>
+        <a href="what-we-do.html">Services</a>
+        <a href="results.html">Results &amp; Impact</a>
+        <a href="philanthropy.html">Let’s Talk Philanthropy</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary" href="contact.html#book">Book a Conversation</a>
+      </div>
     </div>
+  </nav>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-logo">
-            <img src="logo.png" alt="True Impact Philanthropy">
-            <span>True Impact Philanthropy</span>
+      <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Fundraising consultant for nonprofits &amp; charities</div>
+        <h1>Fundraising shouldn’t feel like guesswork.</h1>
+        <p class="lead">Build the strategy, relationships and systems your organization needs to raise more, and raise better.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="contact.html#book">Book a Discovery Conversation</a>
+          <a class="btn btn-secondary" href="fundraising-health-check.html">Take the 3-Minute Health Check</a>
         </div>
-        <div class="header-status">
-            <div class="pulse"></div>
-            New site launching soon
-        </div>
-    </header>
+        <p class="microcopy">Senior-level fundraising strategy, partnerships and nonprofit advisory across Canada.</p>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-logo">
-            <img src="logo.png" alt="True Impact Philanthropy Logo">
+  <!-- 1. The Real Problem -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">The real problem</div>
+        <h2>You don’t just need more fundraising. You need a stronger fundraising system.</h2>
+        <p class="lead">When fundraising is reactive, organizations spend too much time chasing opportunities and too little time building the foundation that makes revenue more predictable.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <span class="num">01</span>
+          <h3>Fundraising feels reactive</h3>
+          <p>Your team moves from grant to event to campaign without a clear annual strategy.</p>
         </div>
-        <h1>True Impact Philanthropy <br><span class="highlight">Is Growing</span></h1>
-        <p class="tagline">Empowering Nonprofits. Amplifying Impact.</p>
-        <p class="description">
-            Our website is currently being redesigned to better serve nonprofit leaders, charities, foundations, and mission-driven organizations. We're creating a modern platform that will provide practical resources, strategic insights, and tailored consulting services to help organizations strengthen their fundraising, partnerships, governance, communications, and long-term sustainability.
-        </p>
-    </section>
+        <div class="card">
+          <span class="num">02</span>
+          <h3>Partnerships stall</h3>
+          <p>Corporate outreach happens, but it is difficult to turn conversations into meaningful long-term relationships.</p>
+        </div>
+        <div class="card">
+          <span class="num">03</span>
+          <h3>Your team is stretched</h3>
+          <p>Important fundraising work competes with operations, programs and day-to-day priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services -->
-    <section class="services reveal">
-        <div class="section-header">
-            <h2>Our New Website Will Feature</h2>
-            <p>Comprehensive services to strengthen your organization's impact</p>
+  <!-- 2. Results & Impact -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Experience that goes beyond advice</div>
+        <h2>Strategy backed by real-world fundraising.</h2>
+        <p class="lead">I’ve been responsible for fundraising targets, donor relationships, partnership proposals, events, grants and organizational results. True Impact is built from that experience.</p>
+      </div>
+      <div class="metric-grid results-metrics">
+        <div class="metric">
+          <strong>15 Years</strong>
+          <span>Fundraising &amp; nonprofit experience</span>
         </div>
-        <div class="services-grid stagger-children">
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>Fundraising Strategy & Consulting</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📋</div>
-                <h3>Strategic Planning</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">✍️</div>
-                <h3>Grant Writing & Funding Development</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🤝</div>
-                <h3>Corporate Partnerships</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏛️</div>
-                <h3>Board Governance & Capacity Building</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📣</div>
-                <h3>Communications & Marketing Strategy</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎓</div>
-                <h3>Training, Workshops & Coaching</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📚</div>
-                <h3>Resources for Nonprofit Leaders</h3>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⭐</div>
-                <h3>Success Stories & Client Impact</h3>
-            </div>
+        <div class="metric">
+          <strong>$1.6M+</strong>
+          <span>Organizational fundraising revenue supported</span>
         </div>
-    </section>
+        <div class="metric">
+          <strong>$144K</strong>
+          <span>Collaborative grant award</span>
+        </div>
+        <div class="metric">
+          <strong>$67K+</strong>
+          <span>Selected fundraising, sponsorship and partnership initiatives</span>
+        </div>
+        <div class="metric">
+          <strong>20+</strong>
+          <span>New partnerships developed for one emerging charity</span>
+        </div>
+      </div>
+      <div class="hero-actions" style="margin-top: 2rem;">
+        <a class="btn btn-primary" href="results.html">See Results &amp; Impact</a>
+        <a class="btn btn-secondary" href="work-with-us.html">See Ways to Work Together</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact -->
-    <section class="contact reveal">
-        <div class="contact-card">
-            <div class="contact-content">
-                <h2>We'd Love to Connect</h2>
-                <p>While we're putting the finishing touches on our new website, we're still here to support your organization.</p>
-                <div class="contact-links">
-                    <a href="mailto:mcmclyne@gmail.com" class="contact-btn email">
-                        <span>📧</span> mcmclyne@gmail.com
-                    </a>
-                    <a href="tel:+16477734841" class="contact-btn phone">
-                        <span>📞</span> 647-773-4841
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mission -->
-    <section class="mission reveal">
-        <blockquote>
-            Helping nonprofits build stronger relationships, raise more funds, and create lasting impact.
+  <!-- 3. Services / Offers -->
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What leaders say</div>
+        <h2>Organizations come to True Impact when they need clarity, structure and momentum.</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial">
+          “I knew I wanted to help my community, but I didn’t know how or where to start. Marsha helped us take that idea and begin building the organization... Within our first year, we established a name in the community and built strong partnerships and referral relationships.”
+          <cite>— Stella, Founder, United in Pride</cite>
         </blockquote>
-    </section>
+        <blockquote class="testimonial">
+          “For years we struggled with structure. True Impact helped us clarify our programs, organize our board, improve our donor systems and build a prospect pipeline aligned with partners who genuinely fit our work.”
+          <cite>— Brenda, Founder, NewLife Project</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Thank you for your patience — we look forward to welcoming you to our new website soon.</p>
-        <p>&copy; 2026 True Impact Philanthropy. All rights reserved.</p>
-    </footer>
+  <section class="section-alt word-banner">
+    <div class="container split">
+        <div>
+          <div class="eyebrow">What We Do</div>
+          <h2>Strategy before solicitation.</h2>
+          <p class="lead">True Impact works with leaders to strengthen the strategy, systems and relationships behind sustainable fundraising.</p>
+          <div style="margin-top: 1.5rem;">
+          <a class="btn btn-primary" href="what-we-do.html">View Services</a>
+          </div>
+        </div>
+        <div class="checklist">
+          <div class="check">Fundraising strategy and revenue diversification</div>
+          <div class="check">Corporate partnerships and sponsorship</div>
+          <div class="check">Grant and institutional funding strategy</div>
+          <div class="check">Board and organizational fundraising capacity</div>
+          <div class="check">Fractional and senior fundraising advisory</div>
+        </div>
+      </div>
+  </section>
 
-    <!-- JavaScript for scroll animations and interactivity -->
-    <script>
-        // Intersection Observer for scroll reveal animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <section>
+    <div class="container">
+      <div class="offer-grid">
+        <div class="offer-card">
+          <div class="offer-label">Diagnose</div>
+          <h3>Fundraising Health Check</h3>
+          <div class="offer-price">Starting at $1,500</div>
+          <p>Understand what is working, what is missing and what to prioritize next.</p>
+          <a class="btn btn-secondary" href="work-with-us.html#health-check">Learn More</a>
+        </div>
+        <div class="offer-card featured">
+          <div class="offer-label">Build</div>
+          <h3>Strategy &amp; Capacity</h3>
+          <div class="offer-price">Starting at $7,500</div>
+          <p>Build the fundraising strategy, systems and roadmap your organization needs for sustainable growth.</p>
+          <a class="btn btn-primary" href="work-with-us.html#strategy">Explore the Flagship Engagement</a>
+        </div>
+        <div class="offer-card">
+          <div class="offer-label">Lead</div>
+          <h3>Fractional Fundraising Leadership</h3>
+          <div class="offer-price">Starting at $3,000/month</div>
+          <p>Senior fundraising guidance without the cost of a full-time executive hire.</p>
+          <a class="btn btn-secondary" href="work-with-us.html#fractional">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Also trigger stagger children if present
-                    const staggerEl = entry.target.querySelector('.stagger-children');
-                    if (staggerEl) {
-                        staggerEl.classList.add('visible');
-                    }
-                }
-            });
-        }, observerOptions);
+  <!-- 4. Testimonials -->
+  <section class="section-alt">
+    <div class="container profile">
+      <img loading="lazy" src="assets/marsha-home-profile.jpg" alt="Marsha Clyne, founder and principal consultant of True Impact Philanthropy">
+      <div>
+        <div class="eyebrow">Meet Our Founder</div>
+        <h2>Marsha Clyne</h2>
+        <p class="lead" style="color: var(--emerald); font-weight: 600; margin-bottom: 1.2rem;">Fundraising Strategist • Partnership Builder • Nonprofit Leader</p>
+        <p>I’m Marsha Clyne, Founder and Principal Consultant of True Impact Philanthropy. For nearly 15 years, I’ve worked across fundraising, philanthropy, communications, partnerships and nonprofit leadership.</p>
+        <p>I help organizations connect the dots between fundraising, leadership, communications, board engagement and relationship building, because sustainable revenue rarely comes from one tactic alone.</p>
+        <div class="pill-row">
+          <span class="pill">Fundraising Strategy</span>
+          <span class="pill">Corporate Partnerships</span>
+          <span class="pill">Major Gifts</span>
+          <span class="pill">Grants</span>
+          <span class="pill">Board Engagement</span>
+        </div>
+        <div class="hero-actions" style="margin-top: 1.8rem;">
+          <a class="btn btn-primary" href="about-true-impact.html">About True Impact</a>
+          <a class="btn btn-secondary" href="results.html">See Her Results</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  <!-- 6. Fundraising Health Check CTA -->
+  <section class="section-alt">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <div class="eyebrow">Not sure where to start?</div>
+          <h2>Find out what may be holding your fundraising back.</h2>
+          <p>Take the free 3-minute Fundraising Health Check for an immediate preliminary score across strategy, donors, partnerships, board engagement and systems.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="fundraising-health-check.html">Take the Free Health Check</a>
+          <a class="btn btn-secondary" href="contact.html#book">Book a Conversation</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        // Parallax effect on hero logo
-        const heroLogo = document.querySelector('.hero-logo img');
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            if (heroLogo && scrolled < 600) {
-                heroLogo.style.transform = `translateY(${scrolled * 0.1}px)`;
-            }
-        });
+  <footer>
+    <div class="container footer-grid">
+      <div>© 2026 True Impact Philanthropy</div>
+      <div>
+        <a href="fundraising-consultant-canada.html">Fundraising Consultant Canada</a> · 
+        <a href="fundraising-consultant-ottawa.html">Ottawa</a> · 
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <div class="footer-socials">
+        <a href="mailto:mcmclyne@gmail.com">mcmclyne@gmail.com</a> · 
+        <a href="tel:+16477734841">647-773-4841</a> · 
+        <a href="https://www.instagram.com/trueimpact.philanthropy?igsh=MThtd3F5MTU0Nmliaw%3D%3D&amp;igsi=MThtd3F5MTU0Nmliaw%3D%3D" target="_blank" rel="noopener">Instagram</a> · 
+        <a href="https://www.linkedin.com/company/true-impact-philanthropy/?viewAsMember=true" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
-        // Service card tilt effect on mouse move
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-                card.style.transform = `translateY(-6px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
+  <a class="whatsapp" href="https://wa.me/16477734841" target="_blank" rel="noopener" aria-label="Chat with True Impact Philanthropy on WhatsApp">
+    <span>WhatsApp</span>
+  </a>
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0)';
-            });
-        });
-
-        // Smooth cursor glow effect on contact card
-        const contactCard = document.querySelector('.contact-card');
-        if (contactCard) {
-            contactCard.addEventListener('mousemove', (e) => {
-                const rect = contactCard.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                contactCard.style.setProperty('--x', x + 'px');
-                contactCard.style.setProperty('--y', y + 'px');
-            });
-        }
-
-        // Typing effect for tagline (subtle)
-        const tagline = document.querySelector('.hero .tagline');
-        if (tagline) {
-            const text = tagline.textContent;
-            tagline.textContent = '';
-            tagline.style.opacity = '1';
-            let i = 0;
-            const timer = setTimeout(() => {
-                const type = () => {
-                    if (i < text.length) {
-                        tagline.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(type, 40);
-                    }
-                };
-                type();
-            }, 1200);
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
